@@ -9,7 +9,7 @@ Hoe kan ik Sentry optimaal inzetten om de kwaliteit van mijn software te verbete
 ## Deelvragen
 
 1. Wat is Sentry en waarvoor kan ik het gebruiken? *(Application performance monitoring & Error Tracking software, z.d.-b)*
-2. Hoe integreer ik Sentry snel in een bestaande en nieuwe Node.js applicatie met Express.js? *(Express | Sentry For Express, z.d.-b)*
+2. Hoe integreer ik Sentry snel in een bestaande en nieuwe Node.js *(Node.js, z.d.)* applicatie met Express.js (Express, z.d.)? *(Express | Sentry For Express, z.d.-b)*
 3. Hoe configureer ik Sentry in CI/CD workflow om automatisch errors te rapporteren? *(Continuous Integration, z.d.-b)*
 4. Hoe kan ik Sentry gebruiken om proactief problemen te detecteren en op te lossen? *(Issues, z.d.-b)*
 
@@ -29,6 +29,8 @@ Hoe kan ik Sentry optimaal inzetten om de kwaliteit van mijn software te verbete
 - *Les 4 - Weekodpracht + Workshop PE & Onderzoeksplan (Dev) - Minor DevOps materiaal v1.1.0 (laatste update: unknown)*. (z.d.). https://minordevops.nl/week-5-slack-ops/workshop-onderzoeksplan-prompt-engineering.html
 - *Scribbr. (2023, 27 juli). Gratis Bronnengenerator | Genereer je literatuurlijst | Scribbr*. https://www.scribbr.nl/bronvermelding/generator
 - *Get the Sentry Logo*. (z.d.). Sentry. https://sentry.io/branding/
+- *Node.js* — Run JavaScript everywhere. (z.d.). https://nodejs.org/en
+- *Express* - Node.js web application framework. (z.d.). https://expressjs.com/
 
 ## Bijlagen
 
