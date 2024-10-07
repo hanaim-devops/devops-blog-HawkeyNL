@@ -32,7 +32,7 @@ Hoe kan ik Sentry optimaal inzetten om de kwaliteit van mijn software te verbete
 
 ## Bijlagen
 
-Bijlagen zijn te vinden in de map `plaatjes`. Elke bijlage gedownload van het internet heeft een bronvermelding in de bronnenlijst.
+Bijlagen zijn te vinden in de map `plaatjes`. Elke bijlage gedownload van het internet heeft een bronvermelding in de <a href="#bronnen">bronnenlijst</a>.
 
 - [Sentry Logo](plaatjes/sentry.svg)
 - [Sentry Logo (tekst)](plaatjes/sentry-text.svg)
