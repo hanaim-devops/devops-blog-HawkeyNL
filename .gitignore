@@ -1,3 +1,6 @@
 book
 
 .idea
+
+src/my-sentry-app/node_modules
+src/my-sentry-app/.env

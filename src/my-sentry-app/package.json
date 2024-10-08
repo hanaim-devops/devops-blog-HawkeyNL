@@ -1,0 +1,19 @@
+{
+  "name": "my-sentry-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Gus Theunissen",
+  "license": "ISC",
+  "dependencies": {
+    "@sentry/cli": "^2.37.0",
+    "@sentry/node": "^8.33.1",
+    "@sentry/profiling-node": "^8.33.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0"
+  }
+}
