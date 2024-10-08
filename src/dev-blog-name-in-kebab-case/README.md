@@ -5,4 +5,8 @@
 *[Voornaam Achternaam, oktober 2024.](https://github.com/hanaim-devops/blog-student-naam)*
 <hr/>
 
-Installeer de aangeraden [mdlint](https://github.com/DavidAnson/markdownlint). Voeg je eerste plaatje en bronnen in. 
+Installeer de aangeraden [mdlint](https://github.com/DavidAnson/markdownlint). Voeg je eerste plaatje en bronnen in conform APA (HAN, z.d.).
+
+## Bronnen
+
+- <https://github.com/DavidAnson/markdownlint> (TODO APA-ify, zie voorbeeld in [onderzoeksplan](../onderzoeksplan.md))
