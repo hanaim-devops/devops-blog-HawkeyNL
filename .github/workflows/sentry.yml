@@ -26,10 +26,6 @@ jobs:
         run: npm test
         working-directory: ./src/my-sentry-app
 
-      - name: Build project
-        run: npm run build
-        working-directory: ./src/my-sentry-app
-
       - name: Send errors to Sentry
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
