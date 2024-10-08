@@ -206,6 +206,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: List directory
+        run: ls -R
+
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
