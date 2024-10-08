@@ -1,11 +1,21 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const app = require('../app.js'); // Zorg ervoor dat het pad naar je app.js bestand klopt
+const Sentry = require('@sentry/node');
 
 chai.use(chaiHttp);
 const { expect } = chai;
 
 describe('Test API', () => {
+    afterEach(function () {
+        // Hier kun je eventueel errors loggen of handmatig Sentry aanroepen
+        if (this.currentTest.state === 'failed') {
+            // Als de test gefaald is, stuur de error naar Sentry
+            Sentry.captureException(this.currentTest.err);
+            console.error('Error captured and sent to Sentry:', this.currentTest.err);
+        }
+    });
+
     it('should trigger an error and send it to Sentry', async () => {
         const res = await chai.request(app).get('/debug-sentry');
         expect(res).to.have.status(500);
