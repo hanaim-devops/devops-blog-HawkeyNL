@@ -34,8 +34,12 @@ describe('Test API', () => {
     });
 
     it('should fail intentionally to send an error to Sentry', async () => {
-        const res = await chai.request(app).get('/'); // Verander de verwachte statuscode om de test te laten falen
-        expect(res).to.have.status(500); // Dit zal falen omdat de status 200 zal zijn
-        expect(res.text).to.equal('This will not match!'); // Dit zorgt ervoor dat de test faalt
+        try {
+            const res = await chai.request(app).get('/'); // Verander de verwachte statuscode om de test te laten falen
+            expect(res).to.have.status(500); // Dit zal niet waar zijn, dus de test zal falen
+        } catch (error) {
+            // Hier wordt de fout gevangen en de test faalt, maar de afterEach wordt nog steeds aangeroepen
+            throw new Error('Intentional failure for Sentry error capture'); // Gooi een fout om de test te laten falen
+        }
     });
 });
