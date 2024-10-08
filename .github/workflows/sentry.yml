@@ -34,10 +34,4 @@ jobs:
         run: |
           npx sentry-cli releases new --project $SENTRY_PROJECT --org $SENTRY_ORG $GITHUB_SHA
           npx sentry-cli releases set-commits --auto $GITHUB_SHA
-
-      - name: Send test errors to Sentry
-        env:
-          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-        run: |
-          npx sentry-cli send-event -m "Test errors during deployment" --level error
-        working-directory: ./src/my-sentry-app
+          npx sentry-cli releases finalize $GITHUB_SHA
