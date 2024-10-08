@@ -206,6 +206,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Change working directory
+        run: cd ./src/my-sentry-app
+
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
