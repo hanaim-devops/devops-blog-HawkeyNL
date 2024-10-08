@@ -202,20 +202,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    steps:
+    steps:        
       - name: Checkout code
         uses: actions/checkout@v2
-
-      - name: List directory
-        run: ls -R
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '20' # De node-js versie die ik gebruik
-
-      - name: Change working directory
-        run: cd ./src/my-sentry-app
 
       - name: Install dependencies
         run: npm install
