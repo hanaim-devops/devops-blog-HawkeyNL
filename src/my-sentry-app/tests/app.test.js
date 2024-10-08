@@ -33,10 +33,9 @@ describe('Test API', () => {
         expect(res).to.have.status(404);
     });
 
-    it('should trigger an error on Hello World', async () => {
-        const res = await chai.request(app).get('/');
-        expect(res).to.have.status(500); // Dit zal falen
-        expect(res.text).to.equal('Hello World!');
+    it('should fail intentionally to send an error to Sentry', async () => {
+        const res = await chai.request(app).get('/'); // Verander de verwachte statuscode om de test te laten falen
+        expect(res).to.have.status(500); // Dit zal falen omdat de status 200 zal zijn
+        expect(res.text).to.equal('This will not match!'); // Dit zorgt ervoor dat de test faalt
     });
 });
-
