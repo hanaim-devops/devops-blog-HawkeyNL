@@ -26,12 +26,35 @@ jobs:
         run: npm test
         working-directory: ./src/my-sentry-app
 
-      - name: Create Sentry Release
+      - name: Create Sentry release
+        uses: getsentry/action-release@v1
         env:
-          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}  # Ensure your SENTRY_AUTH_TOKEN is stored in GitHub secrets
-          SENTRY_PROJECT: 'node-express-app-minordevops'  # Replace with your actual Sentry project slug
-          SENTRY_ORG: 'gus-bj'  # Replace with your actual Sentry organization slug
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+        with:
+          environment: production
+
+      - name: Set commits for Sentry release
         run: |
-          npx sentry-cli releases new --project $SENTRY_PROJECT --org $SENTRY_ORG $GITHUB_SHA
           npx sentry-cli releases set-commits --auto $GITHUB_SHA
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+
+      - name: Finalize Sentry release
+        run: |
           npx sentry-cli releases finalize $GITHUB_SHA
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+
+      - name: Register deploy with Sentry
+        run: |
+          npx sentry-cli releases deploys $GITHUB_SHA new -e production
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
