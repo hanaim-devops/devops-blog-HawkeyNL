@@ -6,6 +6,16 @@ chai.use(chaiHttp);
 const { expect } = chai;
 
 describe('Test API', () => {
+    it('should trigger an error and send it to Sentry', (done) => {
+        chai.request(app)
+            .get('/debug-sentry')
+            .end((err, res) => {
+                expect(res).to.have.status(500);
+                expect(res.text).to.include('My first Sentry error!');
+                done();
+            });
+    });
+
     it('should return Hello World', (done) => {
         chai.request(app)
             .get('/')
@@ -16,12 +26,11 @@ describe('Test API', () => {
             });
     });
 
-    it('should trigger an error and send it to Sentry', (done) => {
+    it('should return a 404 for an unknown route', (done) => {
         chai.request(app)
-            .get('/debug-sentry')
+            .get('/unknown')
             .end((err, res) => {
-                expect(res).to.have.status(500);
-                expect(res.text).to.include('My first Sentry error!');
+                expect(res).to.have.status(404);
                 done();
             });
     });
