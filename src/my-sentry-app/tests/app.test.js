@@ -32,5 +32,11 @@ describe('Test API', () => {
         const res = await chai.request(app).get('/unknown');
         expect(res).to.have.status(404);
     });
+
+    it('should trigger an error on Hello World', async () => {
+        const res = await chai.request(app).get('/');
+        expect(res).to.have.status(500); // Dit zal falen
+        expect(res.text).to.equal('Hello World!');
+    });
 });
 
