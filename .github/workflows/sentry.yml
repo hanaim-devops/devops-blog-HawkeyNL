@@ -35,22 +35,6 @@ jobs:
         with:
           environment: production
 
-      - name: Set commits for Sentry release
-        run: |
-          npx sentry-cli releases set-commits --auto $GITHUB_SHA
-        env:
-          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
-          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
-
-      - name: Finalize Sentry release
-        run: |
-          npx sentry-cli releases finalize $GITHUB_SHA
-        env:
-          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
-          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
-
       - name: Register deploy with Sentry
         run: |
           npx sentry-cli releases deploys $GITHUB_SHA new -e production
