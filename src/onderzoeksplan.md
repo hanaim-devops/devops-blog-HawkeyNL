@@ -38,3 +38,13 @@ Bijlagen zijn te vinden in de map `plaatjes`. Elke bijlage gedownload van het in
 
 - [Sentry Logo](plaatjes/sentry.svg)
 - [Sentry Logo (tekst)](plaatjes/sentry-text.svg)
+
+## Feedback
+
+Ik heb al feedback gehad van Kevin Slingerland;
+- De eerste hoofdvraag `Wat zijn de beste practices voor het implementeren van Sentry in mijn DevOps-workflow?` kwam niet overeen met de deelvragen.
+- Gaf als extra om Sentry nog toe te voegen in een 'bestaande' applicatie.
+- Verder waren het voor de rest sterke punten om in het onderzoek te verwerken.
+Feedback van Luuk Lentjes;
+- Geraadpleegd datum mist nog in bronnen.
+- Verder beantwoorden de deelvragen goed de hoofdvraag.
