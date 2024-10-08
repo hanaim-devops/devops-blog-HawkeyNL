@@ -26,15 +26,14 @@ jobs:
         run: npm test
         working-directory: ./src/my-sentry-app
 
-      - name: Send errors to Sentry
+      - name: Create Sentry Release
         env:
-          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-          SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}  # Ensure your SENTRY_AUTH_TOKEN is stored in GitHub secrets
+          SENTRY_PROJECT: 'node-express-app-minordevops'  # Replace with your actual Sentry project slug
+          SENTRY_ORG: 'gus-bj'  # Replace with your actual Sentry organization slug
         run: |
-          npx sentry-cli releases new $GITHUB_SHA
+          npx sentry-cli releases new --project $SENTRY_PROJECT --org $SENTRY_ORG $GITHUB_SHA
           npx sentry-cli releases set-commits --auto $GITHUB_SHA
-          npx sentry-cli releases finalize $GITHUB_SHA
-        working-directory: ./src/my-sentry-app
 
       - name: Send test errors to Sentry
         env:
