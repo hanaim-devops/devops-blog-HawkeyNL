@@ -202,23 +202,26 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    steps:        
+    steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '20' # De node-js versie die ik gebruik
+          node-version: '20'
 
       - name: Install dependencies
         run: npm install
+        working-directory: ./src/my-sentry-app
 
       - name: Run tests
         run: npm test
+        working-directory: ./src/my-sentry-app
 
       - name: Build project
         run: npm run build
+        working-directory: ./src/my-sentry-app
 
       - name: Send errors to Sentry
         env:
@@ -228,12 +231,14 @@ jobs:
           npx sentry-cli releases new $GITHUB_SHA
           npx sentry-cli releases set-commits --auto $GITHUB_SHA
           npx sentry-cli releases finalize $GITHUB_SHA
+        working-directory: ./src/my-sentry-app
 
       - name: Send test errors to Sentry
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
         run: |
           npx sentry-cli send-event -m "Test errors during deployment" --level error
+        working-directory: ./src/my-sentry-app
 ```
 
 ### Stap 2: Secrets Instellen
@@ -244,7 +249,7 @@ Om ervoor te zorgen dat mijn Sentry-integratie veilig is, moet ik enkele geheime
 
 ### Workflow uitvoeren
 
-Nu ik mijn workflow en geheimen heb ingesteld, wordt de workflow automatisch uitgevoerd telkens als ik een push doe naar de `main`-branch. GitHub Actions zal mijn code controleren, afhankelijkheden installeren, tests uitvoeren, en, als alles goed gaat, de release naar Sentry verzenden.
+Nu ik mijn workflow en geheimen heb ingesteld, wordt de workflow automatisch uitgevoerd telkens als ik een push doe naar de `main`-branch. GitHub Actions zal mijn code controleren, afhankelijkheden installeren, tests uitvoeren, en, als alles goed gaat, de release naar Sentry verzenden. 
 
 Als de tests echter falen, wordt er een foutmelding naar Sentry gestuurd met het bericht "Test errors during deployment". Dit stelt me in staat om eventuele problemen op te sporen voordat de code in productie wordt genomen, wat cruciaal is voor de softwarekwaliteit.
 
