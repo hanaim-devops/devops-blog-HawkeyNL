@@ -206,13 +206,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Change working directory
-        run: cd ./src/my-sentry-app
-
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '20' # De node-js versie die ik gebruik
+
+      - name: Change working directory
+        run: cd ./src/my-sentry-app
 
       - name: Install dependencies
         run: npm install
