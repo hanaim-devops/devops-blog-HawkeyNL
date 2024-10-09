@@ -4,3 +4,4 @@ book
 
 src/my-sentry-app/node_modules
 src/my-sentry-app/.env
+src/my-sentry-app/logs
