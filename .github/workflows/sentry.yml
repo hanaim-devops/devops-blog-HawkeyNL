@@ -37,12 +37,20 @@ jobs:
         working-directory: ./src/my-sentry-app
         continue-on-error: true  # Continue even if tests fail
 
-      - name: Check if tests failed
-        if: failure()  # Runs if the previous step failed
+#      - name: Check if tests failed
+#        if: failure()  # Runs if the previous step failed
+#        run: |
+#          echo "Tests failed, sending event to Sentry"
+#          sentry-cli send-event -m "Test failures detected" --logfile ./logs/test-output.log
+##        env:
+##          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+##          SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+#        continue-on-error: true  # Ensure the rest of the workflow continues
+      - name: Check if log file contains errors
         run: |
-          echo "Tests failed, sending event to Sentry"
-          sentry-cli send-event -m "Test failures detected" --logfile ./logs/test-output.log
-#        env:
-#          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-#          SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
-        continue-on-error: true  # Ensure the rest of the workflow continues
+          if grep -q "error" ./logs/test-output.log; then
+            echo "Errors found in the test log. Sending event to Sentry."
+            sentry-cli send-event -m "Test failures detected" --logfile ./logs/test-output.log
+          else
+            echo "No errors found in the test log."
+          fi
