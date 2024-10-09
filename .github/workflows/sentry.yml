@@ -54,3 +54,4 @@ jobs:
           else
             echo "No errors found in the test log."
           fi
+        working-directory: ./src/my-sentry-app
