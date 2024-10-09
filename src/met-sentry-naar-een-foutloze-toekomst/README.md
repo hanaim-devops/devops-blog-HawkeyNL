@@ -2,45 +2,47 @@
 
 <img src="plaatjes/sentry.svg" width="250" align="right" alt="Sentry">
 
-*[Gus Theunissen, Oktober 2024.](https://github.com/hanaim-devops/blog-student-naam)*
+*[Gus Theunissen, Oktober 2024.](https://github.com/hanaim-devops/blog-student-gus-theunissen)*
 <hr/>
+
+*Logo is afkomstig van: (Get the Sentry Logo, z.d.)*
 
 ## Inleiding
 
-Voor de Minor DevOps aan de Hogeschool van Arnhem en Nijmegen schrijf ik een blogpost over Sentry, een tool die veel wordt gebruikt binnen de DevOps-wereld om de kwaliteit en prestaties van software te verbeteren. In DevOps en softwareontwikkeling is het proactief opsporen en oplossen van problemen van groot belang. Sentry biedt niet alleen error tracking, maar ook application performance monitoring (APM), waardoor ontwikkelaars snel en efficiënt problemen kunnen detecteren en oplossen.
+Voor de Minor DevOps aan de Hogeschool van Arnhem en Nijmegen (HAN) schrijf ik een blogpost over Sentry (Sentry, z.d.), een tool die veel wordt gebruikt binnen de programmeer-wereld om de kwaliteit en prestaties van software te verbeteren. In DevOps en softwareontwikkeling is het proactief opsporen en oplossen van problemen van groot belang. Sentry biedt niet alleen error tracking, maar ook application performance monitoring (APM), waardoor ontwikkelaars snel en efficiënt problemen kunnen detecteren en oplossen.
 
-Deze blogpost gaat dieper in op hoe je Sentry kunt integreren in een Node.js applicatie, hoe je het kunt gebruiken binnen een CI/CD-pipeline, en hoe het kan bijdragen aan een hogere softwarekwaliteit door fouten proactief te signaleren. Je krijgt bovendien een hands-on voorbeeld van de implementatie en configuratie in een real-world setting.
+Deze blogpost gaat dieper in op hoe je Sentry kunt integreren in een Node.js (Node.js, z.d.) applicatie, hoe je het kunt gebruiken binnen een CI/CD-pipeline, en hoe het kan bijdragen aan een hogere softwarekwaliteit door fouten proactief te signaleren. Je krijgt bovendien een hands-on voorbeeld van de implementatie en configuratie in een real-world setting.
 
 ## Sentry
 
-Sentry is een developer-first platform voor error tracking en performance monitoring. Het helpt ontwikkelaars om snel inzicht te krijgen in wat er daadwerkelijk misgaat in hun applicaties en om problemen efficiënt op te lossen. Door fouten en prestatieproblemen direct te signaleren, kunnen ontwikkelaars sneller reageren en zo de stabiliteit en prestaties van hun applicaties verbeteren. Sentry biedt niet alleen de mogelijkheid om problemen op te sporen, maar ook om continu te leren over het gedrag van je applicaties, zodat je proactief verbeteringen kunt doorvoeren.
+Sentry is een developer-first platform voor error tracking en performance monitoring dat ontwikkelaars helpt snel inzicht te krijgen in de problemen in hun applicaties en deze efficiënt op te lossen.
 
-Dit platform is ontworpen met ontwikkelaars in gedachten, wat betekent dat het eenvoudig te integreren is met veelgebruikte frameworks en tools zoals Node.js, Express, en CI/CD-systemen. Hierdoor kunnen teams hun software-ontwikkeling optimaliseren en een hogere mate van controle en inzicht behouden in hun productieomgevingen.
+Dit platform is ontworpen met ontwikkelaars in gedachten, wat betekent dat het eenvoudig te integreren is met veelgebruikte frameworks en tools zoals Node.js, Express (Express, z.d.), en CI/CD-systemen. Hierdoor kunnen teams hun software-ontwikkeling optimaliseren en een hogere mate van controle en inzicht behouden in hun productieomgevingen.
 
 ## Integratie met Node.js
 
-Om Sentry te integreren in een Node.js applicatie met Express, begin ik met het opzetten van een eenvoudige Node.js Express-applicatie. Ik heb gekozen voor Node.js met Express omdat ik het Web Development profiel volg aan de Hogeschool van Arnhem en Nijmegen (HAN) en veel ervaring heb met deze technologieën. Dit is de eerste stap voordat ik Sentry toevoeg om fouten en prestaties te monitoren. Hier is een stapsgewijze handleiding:
+Om Sentry in een Node.js-applicatie met Express te integreren, starten we met het opzetten van een eenvoudige Express-applicatie.
 
 ### Stap 1: Node.js Installeren
 
-Ik zorg ervoor dat Node.js geïnstalleerd is op mijn systeem. Dit controleer ik met het volgende commando in de terminal:
+Zorg ervoor dat je Node.js hebt geïnstalleerd op je systeem. Dit controleer je met het volgende commando in de terminal:
 
 ```bash
 node -v
 ```
 
-Als Node.js nog niet geïnstalleerd is, volg ik de installatie-instructies op de officiële Node.js-website.
+Als Node.js nog niet geïnstalleerd is, volg je de installatie-instructies op de officiële Node.js-website.
 
 ### Stap 2: Express Applicatie Opzetten
 
-Ik maak een nieuwe directory aan voor mijn applicatie en navigeer naar die map in de terminal:
+Maak een nieuwe directory aan voor je applicatie en navigeer naar die map in de terminal:
 
 ```bash
 mkdir my-sentry-app
 cd my-sentry-app
 ```
 
-Vervolgens initialiseer ik een nieuw Node.js-project met npm:
+Vervolgens initialiseer je een nieuw Node.js-project met npm (NPM, z.d.):
 
 ```bash
 npm init -y
@@ -50,7 +52,7 @@ Dit maakt een `package.json` bestand aan waarin de informatie over je project wo
 
 ### Stap 3: Express Installeren
 
-Ik installeer Express in mijn project met npm:
+Installeer Express in je project met npm:
 
 ```bash
 npm install express
@@ -58,7 +60,7 @@ npm install express
 
 ### Stap 4: Express Applicatie Schrijven
 
-In mijn project maak ik een bestand genaamd app.js en voeg de volgende basiscode toe:
+Maak nu een bestand genaamd `app.js` en voeg de volgende basiscode toe:
 
 ```js
 const express = require('express');
@@ -77,13 +79,13 @@ app.listen(3000, () => {
 
 ### Stap 5: Applicatie Starten
 
-Ik start mijn Express-applicatie met het volgende commando:
+Start je Express-applicatie met het volgende commando:
 
 ```bash
 node app.js
 ```
 
-Als alles goed is gegaan, zie ik de tekst "Server is running on http://localhost:3000" in de terminal. In mijn browser navigeer ik naar http://localhost:3000 en zie ik de boodschap "Hello World!".
+Als alles goed is gegaan, nu zien we de tekst "Server is running on http://localhost:3000" in de terminal. Navigeer nu in je browser naar http://localhost:3000 en zien we de boodschap "Hello World!".
 
 <img src="plaatjes/localhost3000_stap_1.png" alt="localhost3000_stap_1" height="274">
 
@@ -91,12 +93,12 @@ Als alles goed is gegaan, zie ik de tekst "Server is running on http://localhost
 
 ### Stap 6: Sentry Integreren
 
-Nu mijn Express-applicatie draait, is het tijd om Sentry toe te voegen om fouten en prestaties te monitoren.
+Nu onze Express-applicatie draait, is het tijd om Sentry toe te voegen om fouten en prestaties te monitoren.
 
-Eerst heb ik een Sentry-account nodig om een project aan te maken en de benodigde configuratiegegevens te verkrijgen. Dit zijn de stappen die ik volg:
-- Ik login op [Sentry-account](https://sentry.io).
-- Daarna maak ik een nieuw project aan met de volgende instellingen:
-  - Platform (in mijn geval Node.js).
+Eerst hebben we een Sentry-account nodig om een project aan te maken en de benodigde configuratiegegevens te verkrijgen. Dit zijn de stappen die we moeten volgen:
+- Login op [Sentry-account](https://sentry.io).
+- Daarna maak je een nieuw project aan met de volgende instellingen:
+  - Platform (in ons geval Node.js).
   - Alerting frequency (standaard).
   - Een naam en team uitkiezen.
 
@@ -104,23 +106,23 @@ Eerst heb ik een Sentry-account nodig om een project aan te maken en de benodigd
 
 *Figuur 2: Nieuw project aanmaken in Sentry voor Node.js*
 
-Nadat ik het project had aangemaakt kwam Sentry nog met de vraag of ik een framework gebruik. Aangezien ik Express gebruik, vink ik Express aan als framework.
+Nadat we het project hebben aangemaakt komt Sentry met de vraag of we een framework gebruiken. Aangezien we Express gebruiken, vinken we Express aan.
 
 <img src="plaatjes/sentry-framework-selectie.png" width="358" alt="Sentry framework selectie">
 
 *Figuur 3: Framework selectie in Sentry*
 
-Hierna krijg ik de configuratiegegevens die ik nodig heb om Sentry in mijn project te integreren.
+Hierna krijgen we de configuratiegegevens die we nodig hebben om Sentry in ons project te integreren.
 
 ### Stap 7: Sentry SDK Installeren
 
-Om de Sentry SDK in mijn Node.js-project te installeren, volg ik de instructies van Sentry:
+Om de Sentry SDK (Software Development Kit) in je Node.js-project te installeren, volg de instructies van Sentry:
 
 ```bash
 npm install --save @sentry/node @sentry/profiling-node
 ```
 
-Vervolgens maak ik een `initSentry.js` bestand aan in mijn project en voeg ik de volgende code toe om Sentry te initialiseren:
+Vervolgens maken we een `initSentry.js` bestand aan in ons project en voegen we de volgende code toe om Sentry te initialiseren:
 
 ```js
 // Import with `import * as Sentry from "@sentry/node"` if you are using ESM
@@ -140,9 +142,9 @@ Sentry.init({
 });
 ```
 
-Ik vervang YOUR_DSN_URL door de DSN die ik heb gekregen van Sentry.
+Vervang `YOUR_DSN_URL` door de DSN die je hebt gekregen van Sentry.
 
-Om Sentry te gebruiken in mijn Express-applicatie, voeg ik de volgende regel toe aan het begin van mijn app.js bestand:
+Om Sentry te gebruiken in onze Express-applicatie, voegen we de volgende regel toe aan het begin van ons `app.js` bestand:
 
 ```js
 require('./initSentry');
@@ -150,7 +152,7 @@ require('./initSentry');
 
 ### Stap 8: Fout- en Prestatiemonitoring Toevoegen
 
-Nu voeg ik de Sentry-error handler toe aan mijn Express-applicatie. Deze zorgt ervoor dat Sentry fouten en prestaties kan monitoren:
+Voeg nu de Sentry-error handler toe aan je Express-applicatie om fouten en prestaties te monitoren:
 
 ```js
 const Sentry = require("@sentry/node");
@@ -166,7 +168,7 @@ app.use(function onError(err, req, res, next) {
 
 ### Stap 9: Fouten Testen met Sentry
 
-Voor het testen van de Sentry-integratie, voeg ik een route toe die opzettelijk een fout genereert:
+Voeg een route toe die opzettelijk een fout genereert om de Sentry-integratie te testen:
 
 ```js
 app.get("/debug-sentry", function mainHandler(req, res) {
@@ -174,7 +176,7 @@ app.get("/debug-sentry", function mainHandler(req, res) {
 });
 ```
 
-Ik start mijn Express-applicatie opnieuw op met node app.js en navigeer naar http://localhost:3000/debug-sentry. Deze foutmelding wordt nu opgevangen door Sentry en gerapporteerd in mijn Sentry-dashboard.
+Start je Express-applicatie opnieuw op met `node app.js` en navigeer naar http://localhost:3000/debug-sentry. Sentry vangt nu deze foutmelding op en rapporteert deze in je Sentry-dashboard.
 
 <img src="plaatjes/sentry-error-reporting.png" width="1015" alt="Sentry error reporting">
 
@@ -182,13 +184,13 @@ Ik start mijn Express-applicatie opnieuw op met node app.js en navigeer naar htt
 
 ## Sentry in een CI/CD Workflow
 
-Elke keer als ik een push doe naar de `main`-branch wil ik dat er automatisch testen worden gedraaid en een Sentry-rapport wordt gegenereerd waarin ik kan zien of er nog errors optreden voor een deploy. In deze sectie bespreek ik hoe ik Sentry kan integreren in mijn CI/CD-workflow met GitHub Actions. Aangezien mijn project momenteel op GitHub staat en ik al ervaring heb met GitHub Actions, kies ik ervoor om deze tool te gebruiken voor de automatisering van het build- en deployproces.
+Elke keer als we een push doen naar de `main`-branch, zorgen we ervoor dat we automatisch testen draaien en een Sentry-rapport genereren (een `.log` bestand waarin staat welke testen zijn gefaald) om te zien of er nog fouten optreden vóór een deploy. In deze sectie gebruiken we Github Actions (GitHub Actions, z.d.) binnen ons CI/CD-workflow. Omdat dit project momenteel op GitHub (GitHub, z.d.) staat en ik al ervaring heb met GitHub Actions, koos ik voor deze tool om het build- en deployproces te automatiseren.
 
 ### Stap 1: GitHub Actions Workflow Configureren
 
-Ik begin met het maken van een nieuwe workflow in mijn GitHub-repository. Dit doe ik door een bestand met de naam `.github/workflows/sentry.yml` aan te maken. Dit bestand definieert de stappen die GitHub Actions moet volgen.
+Nu startte we met het maken van een nieuwe workflow in je GitHub-repository door een bestand met de naam `.github/workflows/sentry.yml` aan te maken. In dit bestand definieer je de stappen die GitHub Actions moet volgen.
 
-Hier is een voorbeeld van de inhoud van mijn `sentry.yml`-bestand:
+Hier is een voorbeeld van mijn `sentry.yml`-bestand:
 
 ```yml
 name: CI/CD with Sentry
@@ -215,44 +217,213 @@ jobs:
         run: npm install
         working-directory: ./src/my-sentry-app
 
-      - name: Run tests
-        run: npm test
-        working-directory: ./src/my-sentry-app
+      - name: Setup Sentry CLI
+        uses: mathieu-bour/setup-sentry-cli@v1
+        with:
+          version: latest # optional if 'latest'
+          url: ${{ secrets.SENTRY_DSN }}
+          token: ${{ secrets.SENTRY_AUTH_TOKEN }} # from GitHub secrets
+          organization: ${{ secrets.SENTRY_ORG }}
+          project: ${{ secrets.SENTRY_PROJECT }}
 
-      - name: Build project
-        run: npm run build
-        working-directory: ./src/my-sentry-app
-
-      - name: Send errors to Sentry
-        env:
-          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-          SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+      - name: Run tests and generate logs
         run: |
-          npx sentry-cli releases new $GITHUB_SHA
-          npx sentry-cli releases set-commits --auto $GITHUB_SHA
-          npx sentry-cli releases finalize $GITHUB_SHA
+          mkdir -p ./logs
+          npm test | tee ./logs/test-output.log
         working-directory: ./src/my-sentry-app
+        continue-on-error: true  # Continue even if tests fail
 
-      - name: Send test errors to Sentry
-        env:
-          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      - name: Check if log file contains errors
         run: |
-          npx sentry-cli send-event -m "Test errors during deployment" --level error
+          if grep -q "error" ./logs/test-output.log; then
+            echo "Errors found in the test log. Sending event to Sentry."
+            sentry-cli send-event -m "Test failures detected" --logfile ./logs/test-output.log
+          else
+            echo "No errors found in the test log."
+          fi
         working-directory: ./src/my-sentry-app
 ```
 
 ### Stap 2: Secrets Instellen
 
-Om ervoor te zorgen dat mijn Sentry-integratie veilig is, moet ik enkele geheimen instellen in mijn GitHub-repository. Dit doe ik door naar het tabblad "Settings" van mijn repository te gaan, vervolgens naar "Secrets" en "Actions" en daar de volgende geheimen toe te voegen:
-- SENTRY_AUTH_TOKEN: Dit is de authentificatietoken die ik van Sentry krijg. Hiermee kan ik veilig communiceren met de Sentry API.
-- SENTRY_DSN: De Data Source Name die ik eerder heb ingesteld voor mijn Sentry-project.
+Om je Sentry-integratie veilig te houden, voegen we enkele geheimen toe aan je GitHub-repository:
+
+- **SENTRY_AUTH_TOKEN**: Authenticatietoken van Sentry om veilig te communiceren met de Sentry API.
+- **SENTRY_DSN**: Data Source Name voor jouw Sentry-project.
+- **SENTRY_ORG**: Jouw Sentry-organisatie.
+- **SENTRY_PROJECT**: Jouw Sentry-project.
+
+### Testen toevoegen
+
+Om de workflow te testen, voegen we een eenvoudige test toe aan ons project.
+
+Maak een nieuwe map `tests` aan in je project en voeg een bestand `api.test.js` toe met de volgende inhoud:
+
+```js
+const fs = require('fs');
+const path = require('path');
+const Sentry = require('@sentry/node');
+const chai = require('chai');
+const chaiHttp = require('chai-http');
+
+const app = require('../app.js'); // Zorg ervoor dat het pad naar je app.js bestand klopt
+const logFilePath = path.join(__dirname, '../logs/test-output.log'); // Log file path
+
+chai.use(chaiHttp);
+const { expect } = chai;
+
+describe('Test API', () => {
+  before(function () {
+    // Maak een logbestand als het nog niet bestaat
+    if (!fs.existsSync(logFilePath)) {
+      fs.writeFileSync(logFilePath, '', { encoding: 'utf8' });
+    }
+
+    // Maak het logbestand leeg
+    fs.writeFileSync(logFilePath, '', { encoding: 'utf8' });
+  });
+
+  afterEach(function () {
+    if (this.currentTest.state === 'failed') {
+      // Als de test gefaald is, stuur de error naar Sentry
+      Sentry.captureException(this.currentTest.err);
+      writeLog(`Test failed: ${this.currentTest.title} - Error: ${this.currentTest.err}`);
+      console.error('Error captured and sent to Sentry:', this.currentTest.err);
+    }
+  });
+
+  it('should return error', async () => {
+    const res = await chai.request(app).get('/debug-sentry');
+    expect(res).to.have.status(500);
+  });
+
+  it('should return Hello World', async () => {
+    const res = await chai.request(app).get('/');
+    expect(res).to.have.status(200);
+    expect(res.text).to.equal('Hello World!');
+  });
+});
+
+function writeLog(data) {
+  fs.appendFileSync(logFilePath, data + '\n', { encoding: 'utf8' });
+}
+```
+
+Voor de testen gebruik we Mocha (Mocha, z.d.) en Chai (Chai, z.d.).
+
+Verander de `scripts` in je `package.json` bestand om de testen te draaien:
+
+```json
+{
+  "scripts": {
+    "test": "mocha tests/**/*.js --timeout 10000 --exit"
+  }
+}
+```
 
 ### Workflow uitvoeren
 
-Nu ik mijn workflow en geheimen heb ingesteld, wordt de workflow automatisch uitgevoerd telkens als ik een push doe naar de `main`-branch. GitHub Actions zal mijn code controleren, afhankelijkheden installeren, tests uitvoeren, en, als alles goed gaat, de release naar Sentry verzenden. 
+Nu we onze workflow en geheimen heb ingesteld, de testen zijn gemaakt, wordt de workflow automatisch uitgevoerd telkens als we een push doen naar de `main`-branch. GitHub Actions zal de code controleren, afhankelijkheden installeren en tests uitvoeren.
 
-Als de tests echter falen, wordt er een foutmelding naar Sentry gestuurd met het bericht "Test errors during deployment". Dit stelt me in staat om eventuele problemen op te sporen voordat de code in productie wordt genomen, wat cruciaal is voor de softwarekwaliteit.
+Als de tests echter falen, wordt er een foutmelding naar Sentry gestuurd met het bestand `test-output.log`. In dit bestand staat elke error die uit de testen zijn gekomen.
+
+Nu committen we de veranderingen naar je Github project, en zien we dat de workflow faalt.
+
+<img src="plaatjes/sentry-event-sturen-faalt.png" width="1387" alt="Sentry event sturen faalt" />
+
+*Figuur 5: Foutmelding bij het sturen van een event naar Sentry*
+
+Om het event te sturen naar mijn Sentry project, gebruiken we de Github Action `mathieu-bour/setup-sentry-cli@v1`. Deze action zorgt ervoor dat de Sentry CLI wordt geïnstalleerd en geconfigureerd met de juiste gegevens. 
+Echter, in ons geval faalde het sturen van de event omdat de `SENTRY_DSN` niet correct was geconfigureerd. Na wat onderzoek loopt deze Github Action achter en kunnen we geen `SENTRY_DSN` instellen.
+
+### Stap 3: Alternatieve Oplossing
+
+De alternatieve oplossing is om elke error die optreedt tijdens de testen te vangen en naar Sentry te sturen door de Sentry SDK te gebruiken in de testen zelf.
+
+Voeg nu de volgende code toe aan het `app.test.js` bestand:
+
+```js
+afterEach(function () {
+    if (this.currentTest.state === 'failed') {
+        // Als de test gefaald is, stuur de error naar Sentry
+        Sentry.captureException(this.currentTest.err);
+        console.error('Error captured and sent to Sentry:', this.currentTest.err);
+    }
+});
+```
+
+Nadat elke test is uitgevoerd, wordt er gekeken of de test is gefaald. Als dat het geval is, wordt de error naar Sentry gestuurd met `Sentry.captureException(this.currentTest.err)`.
+
+Voeg nu een extra test toe die opzettelijk faalt:
+
+```js
+it('should fail intentionally to send an error to Sentry', async () => {
+  const res = await chai.request(app).get('/');
+  expect(res).to.have.status(500); // This will fail
+});
+```
+
+Zorg er nu voor dat je de wijzigingen commit en push naar je Github repository zodat de Github Action `sentry.yml` gaat draaien en Sentry de errors ontvangt.
+
+<img src="plaatjes/sentry-error-reporting-test.png" width="694" alt="Sentry error reporting test">
+
+*Figuur 6: Error reporting in Sentry na het falen van een test*
+
+## Sentry Alerting en Monitoring
+
+Om Sentry proactief te gebruiken voor het detecteren en oplossen van problemen, kun je gebruikmaken van zowel de standaard meldingsfunctionaliteit (zoals e-mails) als andere integraties zoals Slack. Hier zijn een aantal best practices voor het effectief inzetten van Sentry voor proactieve monitoring (Alerts, z.d.).
+
+### 1. Meldingen via e-mail
+
+Sentry stuurt standaard meldingen via e-mail wanneer nieuwe fouten worden gedetecteerd. Je kunt e-mails instellen zodat alleen specifieke types van fouten worden gerapporteerd, of meldingen beperken op basis van de frequentie of het aantal keren dat dezelfde fout optreedt.
+
+### 2. Integratie met Slack
+
+Voor snellere communicatie en teamcollaboratie kun je een Slack-integratie opzetten. Met deze integratie kun je directe meldingen van fouten in Slack-kanalen ontvangen, zodat je snel kunt reageren zonder e-mails in de gaten te hoeven houden.
+
+### 3. Issue Triage en Foutprioritering
+
+- **Proactieve triage**: Sentry biedt inzicht in welke fouten de meeste impact hebben op je gebruikers. Dit kan helpen bij het proactief oplossen van problemen door fouten te prioriteren op basis van impact.
+- **Resolutions**: Wanneer je een fout in Sentry oplost, kun je deze markeren als "resolved". Als deze fout opnieuw voorkomt, krijg je meteen een melding, wat helpt bij het snel identificeren van regressies.
+
+### 4. Prestatiemonitoring
+
+Sentry biedt ook mogelijkheden voor performance monitoring naast foutenmonitoring. Dit stelt je in staat om traagheid in de applicatie op te sporen of langzame API-calls te detecteren. Met Transaction Tracing kun je performance issues analyseren door te zien welke delen van de code problemen veroorzaken. (Performance Monitoring, z.d.)
+
+Proactief gebruik van Performance Monitoring:
+- Stel een threshold in voor laadtijden, zodat je meldingen ontvangt wanneer bepaalde transacties langer duren dan verwacht.
+- Gebruik de Apdex-score om de tevredenheid van je gebruikers met de applicatieperformance in de gaten te houden. Wanneer de score daalt, kun je proactief ingrijpen.
+
+### 5. Advanced Alerts en Automatiseringen
+
+Sentry ondersteunt ook meer geavanceerde waarschuwingen, zoals:
+- **Rate-limiting** alerts: Waarschuwingen wanneer bepaalde fouten binnen een korte tijdsspanne meerdere keren optreden.
+- **Webhooks**: Als je naast Slack andere tools gebruikt zoals Jira, Trello of PagerDuty, kun je meldingen ook via webhooks versturen om automatisch taken aan te maken of escalaties te triggeren.
+
+## Conclusie
+
+Sentry biedt waardevolle functionaliteiten voor het monitoren en opsporen van fouten binnen applicaties, vooral in productieomgevingen. Hoewel Sentry traditioneel gezien gericht is op het verbeteren van softwarekwaliteit, is het ook een krachtige tool binnen een DevOps-context. Het stelt teams in staat om proactief te reageren op productieproblemen en draagt bij aan een snellere feedbackloop door integratie in CI/CD-pijplijnen.
+
+De kracht van Sentry ligt in de samenwerking tussen ontwikkeling en operaties. Door real-time foutmeldingen, prestatiemonitoring en geautomatiseerde alerts kunnen teams effectiever werken, sneller itereren en de algehele gebruikerservaring verbeteren. Hierdoor bevordert Sentry de kernprincipes van DevOps: continue verbetering, samenwerking en een focus op de eindgebruiker.
+
+Al met al toont het gebruik van Sentry aan dat het niet alleen een tool is voor foutopsporing, maar ook een integraal onderdeel kan zijn van een DevOps-strategie die streeft naar een hogere kwaliteit en stabiliteit van softwaretoepassingen.
 
 ## Bronnen!
 
+- Scribbr. (2023b, juli 27). *Gratis bronnengenerator | Genereer je literatuurlijst | Scribbr*. Geraadpleegd op 9 oktober 2024, van https://www.scribbr.nl/bronvermelding/generator/
+- Sentry. (z.d.). *Sentry*. Geraadpleegd op 9 oktober 2024, van https://sentry.io/welcome/
+- Node.js. (z.d.). *Node.js*. Geraadpleegd op 9 oktober 2024, van https://nodejs.org/en
+- Express. (z.d.). *Express*. Geraadpleegd op 9 oktober 2024, van https://expressjs.com/
+- NPM. (z.d.). *Npmjs*. Geraadpleegd op 9 oktober 2024, van https://www.npmjs.com/
+- GitHub. (z.d.). *GitHub*. Geraadpleegd op 9 oktober 2024, van https://github.com/
+- GitHub Actions. (z.d.). *GitHub*. Geraadpleegd op 9 oktober 2024, van https://github.com/features/actions
+- Mocha. (z.d.). *Mocha*. Geraadpleegd op 9 oktober 2024, van https://mochajs.org
+- Chai. (z.d.). *Chai*. Geraadpleegd op 9 oktober 2024, van https://www.chaijs.com/
+- Alerts. (z.d.). *Sentry*. Geraadpleegd op 9 oktober 2024, van https://docs.sentry.io/product/alerts/
+- Performance monitoring. (z.d.). *Sentry*. Geraadpleegd op 9 oktober 2024, van https://docs.sentry.io/product/performance/
+- Week 6 - Onderzoek - Minor DevOps materiaal v1.1.0 (laatste update: unknown). (z.d.). *Minor DevOps*. Geraadpleegd op 9 oktober 2024, van https://minordevops.nl/week-6-onderzoek/index.html
+- AIM Controlekaart - Minor DevOps materiaal v1.1.0 (laatste update: unknown). (z.d.). *Minor DevOps*. Geraadpleegd op 9 oktober 2024, van https://minordevops.nl/week-6-onderzoek/aim-controle-kaart.html
+- Get the Sentry Logo. (z.d.). *Sentry*. https://sentry.io/branding/
 
+Bij dit onderzoek is ChatGPT gebruikt om de tekst te genereren, verbeteren en aan te vullen. Hiernaast is elk stukje tekst gecontroleerd of het correct is en of het past binnen de context van het onderzoek (bekijk altijd de documentatie van de gebruikte software, die zijn het meest actueel).
+Klik [hier](https://chatgpt.com/share/67065b7b-4ff4-800d-b381-4454aa7393ad) om de gebruikte chat te openen._
