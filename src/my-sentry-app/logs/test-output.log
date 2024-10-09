@@ -1,0 +1,2 @@
+Hello World test passed
+Test failed: should fail intentionally to send an error to Sentry - Error: Error: This is an intentional error
