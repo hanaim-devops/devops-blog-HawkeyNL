@@ -333,10 +333,10 @@ Commit en push nu je wijzigingen naar de `main`-branch om de workflow te activer
 
 *Figuur 5: Foutmelding bij het sturen van een event naar Sentry*
 
-Om het event te sturen naar ons Sentry project, gebruiken we de Github Action `mathieu-bour/setup-sentry-cli@v1`. Deze action zorgt ervoor dat de Sentry CLI wordt geïnstalleerd en geconfigureerd met de juiste gegevens. 
+Om het event te sturen naar ons Sentry project, gebruiken we de Github Action `mathieu-bour/setup-sentry-cli@v1`. Deze action zorgt ervoor dat de Sentry CLI (Sentry CLI, z.d.) wordt geïnstalleerd en geconfigureerd met de juiste gegevens. 
 Echter, in ons geval faalde het sturen van de event omdat de `SENTRY_DSN` niet correct was geconfigureerd. Na wat onderzoek loopt deze Github Action achter en kunnen we geen `SENTRY_DSN` instellen.
 
-### Stap 3: Alternatieve Oplossing
+### Stap 3: Alternatieve Oplossing via code
 
 De alternatieve oplossing is om elke error die optreedt tijdens de testen te vangen en naar Sentry te sturen door de Sentry SDK te gebruiken in de testen zelf.
 
@@ -370,6 +370,8 @@ Nu zorgen we ervoor dat de wijzigingen worden gecommit en gepusht naar de `main`
 <img src="plaatjes/sentry-error-reporting-test.png" width="694" alt="Sentry error reporting test">
 
 *Figuur 6: Error reporting in Sentry na het falen van een test*
+
+Het is mogelijk om andere falende events te sturen die worden verricht in de CI/CD-pipeline. Een voorbeeld hiervan is stap 3, het installeren van dependencies. Als dit faalt, stuurt de GitHub Action een event naar Sentry met de foutmelding waarom het installeren van dependencies is mislukt. Maar vanwege de beperkingen van de Github Action `mathieu-bour/setup-sentry-cli@v1` gaan we hier niet verder op in.
 
 ## Sentry Alerting en Monitoring
 
@@ -419,6 +421,7 @@ Al met al toont het gebruik van Sentry aan dat het niet alleen een tool is voor 
 - NPM. (z.d.). *Npmjs*. Geraadpleegd op 9 oktober 2024, van https://www.npmjs.com/
 - GitHub. (z.d.). *GitHub*. Geraadpleegd op 9 oktober 2024, van https://github.com/
 - GitHub Actions. (z.d.). *GitHub*. Geraadpleegd op 9 oktober 2024, van https://github.com/features/actions
+- Sentry CLI. (z.d.). *Sentry*. Geraadpleegd op 9 oktober 2024, van https://docs.sentry.io/cli/
 - Mocha. (z.d.). *Mocha*. Geraadpleegd op 9 oktober 2024, van https://mochajs.org
 - Chai. (z.d.). *Chai*. Geraadpleegd op 9 oktober 2024, van https://www.chaijs.com/
 - Alerts. (z.d.). *Sentry*. Geraadpleegd op 9 oktober 2024, van https://docs.sentry.io/product/alerts/
