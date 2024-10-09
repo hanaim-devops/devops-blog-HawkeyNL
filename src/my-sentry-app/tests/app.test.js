@@ -11,6 +11,16 @@ chai.use(chaiHttp);
 const { expect } = chai;
 
 describe('Test API', () => {
+    before(function () {
+        // Maak een logbestand als het nog niet bestaat
+        if (!fs.existsSync(logFilePath)) {
+            fs.writeFileSync(logFilePath, '', { encoding: 'utf8' });
+        }
+
+        // Maak het logbestand leeg
+        fs.writeFileSync(logFilePath, '', { encoding: 'utf8' });
+    });
+
     afterEach(function () {
         if (this.currentTest.state === 'failed') {
             // Als de test gefaald is, stuur de error naar Sentry
