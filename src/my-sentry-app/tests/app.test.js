@@ -20,20 +20,20 @@ describe('Test API', () => {
         }
     });
 
+    it('should return error', async () => {
+        const res = await chai.request(app).get('/debug-sentry');
+        expect(res).to.have.status(500);
+    });
+
     it('should return Hello World', async () => {
         const res = await chai.request(app).get('/');
         expect(res).to.have.status(200);
         expect(res.text).to.equal('Hello World!');
-        writeLog('Hello World test passed');
     });
 
     it('should fail intentionally to send an error to Sentry', async () => {
-        try {
-            const res = await chai.request(app).get('/');
-            expect(res).to.have.status(500); // This will fail
-        } catch (error) {
-            throw new Error('This is an intentional error');
-        }
+        const res = await chai.request(app).get('/');
+        expect(res).to.have.status(500); // This will fail
     });
 });
 

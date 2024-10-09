@@ -1,2 +1,4 @@
 Hello World test passed
 Test failed: should fail intentionally to send an error to Sentry - Error: Error: This is an intentional error
+Test failed: should fail intentionally to send an error to Sentry - Error: Error: This is an intentional error
+Test failed: should fail intentionally to send an error to Sentry - Error: AssertionError: expected { Object (_events, _eventsCount, ...) } to have status code 500 but got 200
