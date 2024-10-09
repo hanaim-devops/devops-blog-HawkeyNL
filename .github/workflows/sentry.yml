@@ -22,14 +22,14 @@ jobs:
         run: npm install
         working-directory: ./src/my-sentry-app
 
-      - name: Setup Sentry CLI
-        uses: mathieu-bour/setup-sentry-cli@v1
-        with:
-          version: latest # optional if 'latest'
-          url: ${{ secrets.SENTRY_DSN }}
-          token: ${{ secrets.SENTRY_AUTH_TOKEN }} # from GitHub secrets
-          organization: ${{ secrets.SENTRY_ORG }}
-          project: ${{ secrets.SENTRY_PROJECT }}
+#      - name: Setup Sentry CLI
+#        uses: mathieu-bour/setup-sentry-cli@v1
+#        with:
+#          version: latest # optional if 'latest'
+#          url: ${{ secrets.SENTRY_DSN }}
+#          token: ${{ secrets.SENTRY_AUTH_TOKEN }} # from GitHub secrets
+#          organization: ${{ secrets.SENTRY_ORG }}
+#          project: ${{ secrets.SENTRY_PROJECT }}
 
       - name: Run tests and generate logs
         run: |
@@ -38,12 +38,12 @@ jobs:
         working-directory: ./src/my-sentry-app
         continue-on-error: true  # Continue even if tests fail
 
-      - name: Check if log file contains errors
-        run: |
-          if grep -q "error" ./logs/test-output.log; then
-            echo "Errors found in the test log. Sending event to Sentry."
-            sentry-cli send-event -m "Test failures detected" --logfile ./logs/test-output.log
-          else
-            echo "No errors found in the test log."
-          fi
-        working-directory: ./src/my-sentry-app
+#      - name: Check if log file contains errors
+#        run: |
+#          if grep -q "error" ./logs/test-output.log; then
+#            echo "Errors found in the test log. Sending event to Sentry."
+#            sentry-cli send-event -m "Test failures detected" --logfile ./logs/test-output.log
+#          else
+#            echo "No errors found in the test log."
+#          fi
+#        working-directory: ./src/my-sentry-app

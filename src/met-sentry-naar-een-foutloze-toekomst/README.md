@@ -340,6 +340,8 @@ Echter, in ons geval faalde het sturen van de event omdat de `SENTRY_DSN` niet c
 
 De alternatieve oplossing is om elke error die optreedt tijdens de testen te vangen en naar Sentry te sturen door de Sentry SDK te gebruiken in de testen zelf.
 
+We beginnen eerst met het verwijderen van de `Setup Sentry CLI` en `Check if log file contains errors` stappen uit de `sentry.yml` GitHub Action-workflow zodat we alleen de tests uitvoeren.
+
 Nu voegen we de volgende code toe aan het `app.test.js` bestand om de errors naar Sentry te sturen:
 
 ```js
