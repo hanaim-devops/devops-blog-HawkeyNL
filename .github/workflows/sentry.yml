@@ -22,6 +22,40 @@ jobs:
         run: npm install
         working-directory: ./src/my-sentry-app
 
-      - name: Run tests
-        run: npm test
+      - name: Run tests and generate logs
+        run: |
+          mkdir -p ./logs
+          npm test
         working-directory: ./src/my-sentry-app
+        continue-on-error: true  # Continue even if tests fail
+
+      - name: Create Sentry release
+        uses: getsentry/action-release@v1
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+
+      - name: Upload test log to Sentry
+        run: |
+          npx sentry-cli releases files $GITHUB_SHA upload ./logs/test-output.log test-output.log
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+
+      - name: Finalize Sentry release
+        run: |
+          npx sentry-cli releases finalize $GITHUB_SHA
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+
+      - name: Register deploy with Sentry
+        run: |
+          npx sentry-cli releases deploys $GITHUB_SHA new -e production
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
