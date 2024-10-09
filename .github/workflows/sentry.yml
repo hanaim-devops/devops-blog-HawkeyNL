@@ -23,7 +23,7 @@ jobs:
         working-directory: ./src/my-sentry-app
 
       - name: Setup Sentry CLI
-        uses: getsentry/action-setup-sentry-cli@v1
+        uses: mathieu-bour/setup-sentry-cli@v1
         with:
           version: latest # optional if 'latest'
           token: ${{ SECRETS.SENTRY_AUTH_TOKEN }} # from GitHub secrets
