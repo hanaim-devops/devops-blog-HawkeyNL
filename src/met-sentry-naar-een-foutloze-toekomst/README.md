@@ -420,15 +420,15 @@ Al met al toont het gebruik van Sentry aan dat het niet alleen een tool is voor 
 - Express. (z.d.). *Express*. Geraadpleegd op 9 oktober 2024, van https://expressjs.com/
 - NPM. (z.d.). *Npmjs*. Geraadpleegd op 9 oktober 2024, van https://www.npmjs.com/
 - GitHub. (z.d.). *GitHub*. Geraadpleegd op 9 oktober 2024, van https://github.com/
-- GitHub Actions. (z.d.). *GitHub*. Geraadpleegd op 9 oktober 2024, van https://github.com/features/actions
-- Sentry CLI. (z.d.). *Sentry*. Geraadpleegd op 9 oktober 2024, van https://docs.sentry.io/cli/
+- GitHub Actions. (z.d.). *GitHub Actions*. Geraadpleegd op 9 oktober 2024, van https://github.com/features/actions
+- Sentry CLI. (z.d.). *Sentry CLI*. Geraadpleegd op 9 oktober 2024, van https://docs.sentry.io/cli/
 - Mocha. (z.d.). *Mocha*. Geraadpleegd op 9 oktober 2024, van https://mochajs.org
 - Chai. (z.d.). *Chai*. Geraadpleegd op 9 oktober 2024, van https://www.chaijs.com/
-- Alerts. (z.d.). *Sentry*. Geraadpleegd op 9 oktober 2024, van https://docs.sentry.io/product/alerts/
-- Performance monitoring. (z.d.). *Sentry*. Geraadpleegd op 9 oktober 2024, van https://docs.sentry.io/product/performance/
+- Alerts. (z.d.). *Sentry Alerts*. Geraadpleegd op 9 oktober 2024, van https://docs.sentry.io/product/alerts/
+- Performance monitoring. (z.d.). *Sentry Performance Monitoring*. Geraadpleegd op 9 oktober 2024, van https://docs.sentry.io/product/performance/
 - Week 6 - Onderzoek - Minor DevOps materiaal v1.1.0 (laatste update: unknown). (z.d.). *Minor DevOps*. Geraadpleegd op 9 oktober 2024, van https://minordevops.nl/week-6-onderzoek/index.html
 - AIM Controlekaart - Minor DevOps materiaal v1.1.0 (laatste update: unknown). (z.d.). *Minor DevOps*. Geraadpleegd op 9 oktober 2024, van https://minordevops.nl/week-6-onderzoek/aim-controle-kaart.html
-- Get the Sentry Logo. (z.d.). *Sentry*. https://sentry.io/branding/
+- Get the Sentry Logo. (z.d.). *Sentry Branding*. https://sentry.io/branding/
 
 Bij dit onderzoek is ChatGPT gebruikt om de tekst te genereren, verbeteren en aan te vullen. Hiernaast is elk stukje tekst gecontroleerd of het correct is en of het past binnen de context van het onderzoek (bekijk altijd de documentatie van de gebruikte software, die zijn het meest actueel).
 Klik [hier](https://chatgpt.com/share/67065b7b-4ff4-800d-b381-4454aa7393ad) om de gebruikte chat te openen.
