@@ -26,7 +26,8 @@ jobs:
         uses: mathieu-bour/setup-sentry-cli@v1
         with:
           version: latest # optional if 'latest'
-          token: ${{ SECRETS.SENTRY_AUTH_TOKEN }} # from GitHub secrets
+          url: ${{ secrets.SENTRY_DSN }}
+          token: ${{ secrets.SENTRY_AUTH_TOKEN }} # from GitHub secrets
           organization: ${{ secrets.SENTRY_ORG }}
           project: ${{ secrets.SENTRY_PROJECT }}
 
