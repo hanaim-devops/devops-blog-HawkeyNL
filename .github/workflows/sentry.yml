@@ -22,17 +22,21 @@ jobs:
         run: npm install
         working-directory: ./src/my-sentry-app
 
+      - name: Setup Sentry CLI
+        uses: getsentry/action-setup-sentry-cli@v1
+        with:
+          version: latest # optional if 'latest'
+          token: ${{ SECRETS.SENTRY_AUTH_TOKEN }} # from GitHub secrets
+          organization: ${{ secrets.SENTRY_ORG }}
+          project: ${{ secrets.SENTRY_PROJECT }}
+
       - name: Run tests and generate logs
         run: |
           mkdir -p ./logs
-          npm test
+          npm test | tee ./logs/test-output.log
         working-directory: ./src/my-sentry-app
         continue-on-error: true  # Continue even if tests fail
 
       - name: Upload test log to Sentry
         run: |
           sentry-cli releases files $GITHUB_SHA upload ./logs/test-output.log test-output.log
-        env:
-          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
-          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
