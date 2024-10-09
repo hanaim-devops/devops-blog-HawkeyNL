@@ -426,4 +426,4 @@ Al met al toont het gebruik van Sentry aan dat het niet alleen een tool is voor 
 - Get the Sentry Logo. (z.d.). *Sentry*. https://sentry.io/branding/
 
 Bij dit onderzoek is ChatGPT gebruikt om de tekst te genereren, verbeteren en aan te vullen. Hiernaast is elk stukje tekst gecontroleerd of het correct is en of het past binnen de context van het onderzoek (bekijk altijd de documentatie van de gebruikte software, die zijn het meest actueel).
-Klik [hier](https://chatgpt.com/share/67065b7b-4ff4-800d-b381-4454aa7393ad) om de gebruikte chat te openen._
+Klik [hier](https://chatgpt.com/share/67065b7b-4ff4-800d-b381-4454aa7393ad) om de gebruikte chat te openen.
