@@ -42,7 +42,7 @@ mkdir my-sentry-app
 cd my-sentry-app
 ```
 
-Vervolgens initialiseren we een nieuw Node.js-project met npm (NPM, z.d.):
+Vervolgens initialiseren we een nieuwe Node.js-project met npm (NPM, z.d.):
 
 ```bash
 npm init -y
@@ -309,7 +309,7 @@ function writeLog(data) {
 }
 ```
 
-Voor de testen gebruik we Mocha (Mocha, z.d.) en Chai (Chai, z.d.).
+Voor de testen gebruiken we Mocha (Mocha, z.d.) en Chai (Chai, z.d.).
 
 Verander de `scripts` in je `package.json` bestand om de testen te draaien:
 
@@ -388,7 +388,7 @@ Voor snellere communicatie en teamcollaboratie kun je een Slack-integratie opzet
 
 ### 4. Prestatiemonitoring
 
-Sentry biedt ook mogelijkheden voor performance monitoring naast foutenmonitoring. Dit stelt je in staat om traagheid in de applicatie op te sporen of langzame API-calls te detecteren. Met Transaction Tracing kun je performance issues analyseren door te zien welke delen van de code problemen veroorzaken. (Performance Monitoring, z.d.)
+Sentry biedt ook mogelijkheden voor performance monitoring naast foutenmonitoring. Dit stelt je in staat om traagheid in de applicatie op te sporen of langzame API-calls te detecteren. Met Transaction Tracing kun je performance-issues analyseren door te zien welke delen van de code problemen veroorzaken. (Performance Monitoring, z.d.)
 
 Proactief gebruik van Performance Monitoring:
 - Stel een threshold in voor laadtijden, zodat je meldingen ontvangt wanneer bepaalde transacties langer duren dan verwacht.
@@ -397,7 +397,7 @@ Proactief gebruik van Performance Monitoring:
 ### 5. Advanced Alerts en Automatiseringen
 
 Sentry ondersteunt ook meer geavanceerde waarschuwingen, zoals:
-- **Rate-limiting** alerts: Waarschuwingen wanneer bepaalde fouten binnen een korte tijdsspanne meerdere keren optreden.
+- **Rate-limiting** alerts: Waarschuwingen wanneer bepaalde fouten binnen een korte tijdspanne meerdere keren optreden.
 - **Webhooks**: Als je naast Slack andere tools gebruikt zoals Jira, Trello of PagerDuty, kun je meldingen ook via webhooks versturen om automatisch taken aan te maken of escalaties te triggeren.
 
 ## Conclusie
