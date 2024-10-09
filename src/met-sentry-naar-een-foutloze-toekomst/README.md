@@ -402,11 +402,11 @@ Proactief gebruik van Performance Monitoring:
 
 Sentry ondersteunt ook meer geavanceerde waarschuwingen, zoals:
 - **Rate-limiting** alerts: Waarschuwingen wanneer bepaalde fouten binnen een korte tijdspanne meerdere keren optreden.
-- **Webhooks**: Als je naast Slack andere tools gebruikt zoals Jira, Trello of PagerDuty, kun je meldingen ook via webhooks versturen om automatisch taken aan te maken of escalaties te triggeren.
+- **Webhooks**: Als je naast Slack andere tools gebruikt, kun je meldingen ook via webhooks versturen om automatisch taken aan te maken of escalaties te triggeren.
 
 ## Conclusie
 
-Sentry biedt waardevolle functionaliteiten voor het monitoren en opsporen van fouten binnen applicaties, vooral in productieomgevingen. Hoewel Sentry traditioneel gezien gericht is op het verbeteren van softwarekwaliteit, is het ook een krachtige tool binnen een DevOps-context. Het stelt teams in staat om proactief te reageren op productieproblemen en draagt bij aan een snellere feedbackloop door integratie in CI/CD-pijplijnen.
+Sentry biedt waardevolle functionaliteiten voor het monitoren en opsporen van fouten binnen applicaties, vooral in productieomgevingen. Hoewel Sentry traditioneel gezien gericht is op het verbeteren van softwarekwaliteit, is het ook een krachtige tool binnen een DevOps-context. Het stelt teams in staat om proactief te reageren op productieproblemen en draagt bij aan een snellere feedbackloop door integratie in CI/CD-pipeline.
 
 De kracht van Sentry ligt in de samenwerking tussen ontwikkeling en operaties. Door real-time foutmeldingen, prestatiemonitoring en geautomatiseerde alerts kunnen teams effectiever werken, sneller itereren en de algehele gebruikerservaring verbeteren. Hierdoor bevordert Sentry de kernprincipes van DevOps: continue verbetering, samenwerking en een focus op de eindgebruiker.
 
