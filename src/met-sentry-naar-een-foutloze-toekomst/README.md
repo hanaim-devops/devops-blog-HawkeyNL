@@ -9,7 +9,7 @@
 
 ## Inleiding
 
-Voor de Minor DevOps aan de Hogeschool van Arnhem en Nijmegen (HAN) schrijf ik een blogpost over Sentry (Sentry, z.d.), een tool die veel wordt gebruikt binnen de programmeer-wereld om de kwaliteit en prestaties van software te verbeteren. In DevOps en softwareontwikkeling is het proactief opsporen en oplossen van problemen van groot belang. Sentry biedt niet alleen error tracking, maar ook application performance monitoring (APM), waardoor ontwikkelaars snel en efficiënt problemen kunnen detecteren en oplossen.
+Voor de Minor DevOps aan de Hogeschool van Arnhem en Nijmegen (HAN) schrijf ik een blogpost over Sentry (Sentry, z.d.), een tool die veel wordt gebruikt binnen de DevOps-wereld om de kwaliteit en prestaties van software te verbeteren. In DevOps en softwareontwikkeling is het proactief opsporen en oplossen van problemen van groot belang. Sentry biedt niet alleen error tracking, maar ook application performance monitoring (APM), waardoor ontwikkelaars snel en efficiënt problemen kunnen detecteren en oplossen.
 
 Deze blogpost gaat dieper in op hoe je Sentry kunt integreren in een Node.js (Node.js, z.d.) applicatie, hoe je het kunt gebruiken binnen een CI/CD-pipeline, en hoe het kan bijdragen aan een hogere softwarekwaliteit door fouten proactief te signaleren. Je krijgt bovendien een hands-on voorbeeld van de implementatie en configuratie in een real-world setting.
 
@@ -25,34 +25,34 @@ Om Sentry in een Node.js-applicatie met Express te integreren, starten we met he
 
 ### Stap 1: Node.js Installeren
 
-Zorg ervoor dat je Node.js hebt geïnstalleerd op je systeem. Dit controleer je met het volgende commando in de terminal:
+We moeten ervoor zorgen dat Node.js is geïnstalleerd op ons systeem. Dit kunnen we controleren met het volgende commando in de terminal:
 
 ```bash
 node -v
 ```
 
-Als Node.js nog niet geïnstalleerd is, volg je de installatie-instructies op de officiële Node.js-website.
+Als Node.js nog niet geïnstalleerd is, volgen we de installatie-instructies op de officiële Node.js-website.
 
 ### Stap 2: Express Applicatie Opzetten
 
-Maak een nieuwe directory aan voor je applicatie en navigeer naar die map in de terminal:
+Nu maken we een nieuwe directory aan voor onze Express-applicatie en navigeren we naar die map in de terminal:
 
 ```bash
 mkdir my-sentry-app
 cd my-sentry-app
 ```
 
-Vervolgens initialiseer je een nieuw Node.js-project met npm (NPM, z.d.):
+Vervolgens initialiseren we een nieuw Node.js-project met npm (NPM, z.d.):
 
 ```bash
 npm init -y
 ```
 
-Dit maakt een `package.json` bestand aan waarin de informatie over je project wordt opgeslagen.
+Dit maakt een `package.json` bestand aan waarin de informatie over ons project wordt opgeslagen.
 
 ### Stap 3: Express Installeren
 
-Installeer Express in je project met npm:
+Nu installeren we Express in ons project met het volgende commando:
 
 ```bash
 npm install express
@@ -79,13 +79,13 @@ app.listen(3000, () => {
 
 ### Stap 5: Applicatie Starten
 
-Start je Express-applicatie met het volgende commando:
+Start de Express-applicatie met het volgende commando:
 
 ```bash
 node app.js
 ```
 
-Als alles goed is gegaan, nu zien we de tekst "Server is running on http://localhost:3000" in de terminal. Navigeer nu in je browser naar http://localhost:3000 en zien we de boodschap "Hello World!".
+Als alles goed is gegaan, zien we nu de tekst "Server is running on http://localhost:3000" in de terminal. Navigeer nu in je browser naar http://localhost:3000 en zien we de boodschap "Hello World!".
 
 <img src="plaatjes/localhost3000_stap_1.png" alt="localhost3000_stap_1" height="274">
 
@@ -97,7 +97,7 @@ Nu onze Express-applicatie draait, is het tijd om Sentry toe te voegen om fouten
 
 Eerst hebben we een Sentry-account nodig om een project aan te maken en de benodigde configuratiegegevens te verkrijgen. Dit zijn de stappen die we moeten volgen:
 - Login op [Sentry-account](https://sentry.io).
-- Daarna maak je een nieuw project aan met de volgende instellingen:
+- Daarna maken we een nieuw project aan met de volgende instellingen:
   - Platform (in ons geval Node.js).
   - Alerting frequency (standaard).
   - Een naam en team uitkiezen.
@@ -116,7 +116,7 @@ Hierna krijgen we de configuratiegegevens die we nodig hebben om Sentry in ons p
 
 ### Stap 7: Sentry SDK Installeren
 
-Om de Sentry SDK (Software Development Kit) in je Node.js-project te installeren, volg de instructies van Sentry:
+Om de Sentry SDK (Software Development Kit) in ons Node.js-project te installeren, volgen we de instructies van Sentry:
 
 ```bash
 npm install --save @sentry/node @sentry/profiling-node
@@ -142,7 +142,7 @@ Sentry.init({
 });
 ```
 
-Vervang `YOUR_DSN_URL` door de DSN die je hebt gekregen van Sentry.
+Nu vervangen we `YOUR_DSN_URL` door de DSN die we hebben gekregen van Sentry.
 
 Om Sentry te gebruiken in onze Express-applicatie, voegen we de volgende regel toe aan het begin van ons `app.js` bestand:
 
@@ -176,7 +176,7 @@ app.get("/debug-sentry", function mainHandler(req, res) {
 });
 ```
 
-Start je Express-applicatie opnieuw op met `node app.js` en navigeer naar http://localhost:3000/debug-sentry. Sentry vangt nu deze foutmelding op en rapporteert deze in je Sentry-dashboard.
+Nu starten we de Express-applicatie opnieuw op met `node app.js` en navigeren we naar http://localhost:3000/debug-sentry. Sentry vangt nu deze foutmelding op en rapporteert deze in je Sentry-dashboard.
 
 <img src="plaatjes/sentry-error-reporting.png" width="1015" alt="Sentry error reporting">
 
@@ -188,9 +188,9 @@ Elke keer als we een push doen naar de `main`-branch, zorgen we ervoor dat we au
 
 ### Stap 1: GitHub Actions Workflow Configureren
 
-Nu startte we met het maken van een nieuwe workflow in je GitHub-repository door een bestand met de naam `.github/workflows/sentry.yml` aan te maken. In dit bestand definieer je de stappen die GitHub Actions moet volgen.
+Nu startte we met het maken van een nieuwe workflow in je GitHub-repository door een bestand in de root van het project aan te maken met de naam `.github/workflows/sentry.yml`. In dit bestand definiëren we de stappen die de GitHub Action moet uitvoeren bij elke push naar de `main`-branch.
 
-Hier is een voorbeeld van mijn `sentry.yml`-bestand:
+Hier is de uitgebreide configuratie voor de GitHub Action:
 
 ```yml
 name: CI/CD with Sentry
@@ -246,7 +246,7 @@ jobs:
 
 ### Stap 2: Secrets Instellen
 
-Om je Sentry-integratie veilig te houden, voegen we enkele geheimen toe aan je GitHub-repository:
+Om onze Sentry-integratie veilig te houden, voegen we enkele geheimen toe aan onze GitHub-repository:
 
 - **SENTRY_AUTH_TOKEN**: Authenticatietoken van Sentry om veilig te communiceren met de Sentry API.
 - **SENTRY_DSN**: Data Source Name voor jouw Sentry-project.
@@ -257,7 +257,7 @@ Om je Sentry-integratie veilig te houden, voegen we enkele geheimen toe aan je G
 
 Om de workflow te testen, voegen we een eenvoudige test toe aan ons project.
 
-Maak een nieuwe map `tests` aan in je project en voeg een bestand `api.test.js` toe met de volgende inhoud:
+Nu maken we een nieuwe map `tests` aan in ons project en voegen we een bestand `app.test.js` toe met de volgende inhoud:
 
 ```js
 const fs = require('fs');
@@ -327,20 +327,20 @@ Nu we onze workflow en geheimen heb ingesteld, de testen zijn gemaakt, wordt de 
 
 Als de tests echter falen, wordt er een foutmelding naar Sentry gestuurd met het bestand `test-output.log`. In dit bestand staat elke error die uit de testen zijn gekomen.
 
-Nu committen we de veranderingen naar je Github project, en zien we dat de workflow faalt.
+Commit en push nu je wijzigingen naar de `main`-branch om de workflow te activeren. We zien nu dat de workflow faalt.
 
 <img src="plaatjes/sentry-event-sturen-faalt.png" width="1387" alt="Sentry event sturen faalt" />
 
 *Figuur 5: Foutmelding bij het sturen van een event naar Sentry*
 
-Om het event te sturen naar mijn Sentry project, gebruiken we de Github Action `mathieu-bour/setup-sentry-cli@v1`. Deze action zorgt ervoor dat de Sentry CLI wordt geïnstalleerd en geconfigureerd met de juiste gegevens. 
+Om het event te sturen naar ons Sentry project, gebruiken we de Github Action `mathieu-bour/setup-sentry-cli@v1`. Deze action zorgt ervoor dat de Sentry CLI wordt geïnstalleerd en geconfigureerd met de juiste gegevens. 
 Echter, in ons geval faalde het sturen van de event omdat de `SENTRY_DSN` niet correct was geconfigureerd. Na wat onderzoek loopt deze Github Action achter en kunnen we geen `SENTRY_DSN` instellen.
 
 ### Stap 3: Alternatieve Oplossing
 
 De alternatieve oplossing is om elke error die optreedt tijdens de testen te vangen en naar Sentry te sturen door de Sentry SDK te gebruiken in de testen zelf.
 
-Voeg nu de volgende code toe aan het `app.test.js` bestand:
+Nu voegen we de volgende code toe aan het `app.test.js` bestand om de errors naar Sentry te sturen:
 
 ```js
 afterEach(function () {
@@ -354,7 +354,7 @@ afterEach(function () {
 
 Nadat elke test is uitgevoerd, wordt er gekeken of de test is gefaald. Als dat het geval is, wordt de error naar Sentry gestuurd met `Sentry.captureException(this.currentTest.err)`.
 
-Voeg nu een extra test toe die opzettelijk faalt:
+Nu voegen we nog een extra test toe die opzettelijk faalt om te zien of de errors correct naar Sentry worden gestuurd:
 
 ```js
 it('should fail intentionally to send an error to Sentry', async () => {
@@ -363,7 +363,7 @@ it('should fail intentionally to send an error to Sentry', async () => {
 });
 ```
 
-Zorg er nu voor dat je de wijzigingen commit en push naar je Github repository zodat de Github Action `sentry.yml` gaat draaien en Sentry de errors ontvangt.
+Nu zorgen we ervoor dat de wijzigingen worden gecommit en gepusht naar de `main`-branch van je GitHub-repository. De GitHub Action `sentry.yml` wordt nu uitgevoerd en de errors worden naar Sentry gestuurd.
 
 <img src="plaatjes/sentry-error-reporting-test.png" width="694" alt="Sentry error reporting test">
 
