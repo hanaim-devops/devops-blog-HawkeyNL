@@ -262,7 +262,6 @@ Nu maken we een nieuwe map `tests` aan in ons project en voegen we een bestand `
 ```js
 const fs = require('fs');
 const path = require('path');
-const Sentry = require('@sentry/node');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 
@@ -285,8 +284,6 @@ describe('Test API', () => {
 
   afterEach(function () {
     if (this.currentTest.state === 'failed') {
-      // Als de test gefaald is, stuur de error naar Sentry
-      Sentry.captureException(this.currentTest.err);
       writeLog(`Test failed: ${this.currentTest.title} - Error: ${this.currentTest.err}`);
       console.error('Error captured and sent to Sentry:', this.currentTest.err);
     }
@@ -342,16 +339,23 @@ De alternatieve oplossing is om elke error die optreedt tijdens de testen te van
 
 We beginnen eerst met het verwijderen van de `Setup Sentry CLI` en `Check if log file contains errors` stappen uit de `sentry.yml` GitHub Action-workflow zodat we alleen de tests uitvoeren.
 
-Nu voegen we de volgende code toe aan het `app.test.js` bestand om de errors naar Sentry te sturen:
+Nu veranderen we de volgende code van de `afterEach` in het `app.test.js` bestand om de errors naar Sentry te sturen:
 
 ```js
 afterEach(function () {
     if (this.currentTest.state === 'failed') {
         // Als de test gefaald is, stuur de error naar Sentry
         Sentry.captureException(this.currentTest.err);
+        writeLog(`Test failed: ${this.currentTest.title} - Error: ${this.currentTest.err}`);
         console.error('Error captured and sent to Sentry:', this.currentTest.err);
     }
 });
+```
+
+Natuurlijk mogen we de Sentry import ook niet vergeten bovenaan het bestand:
+
+```js
+const Sentry = require("@sentry/node");
 ```
 
 Nadat elke test is uitgevoerd, wordt er gekeken of de test is gefaald. Als dat het geval is, wordt de error naar Sentry gestuurd met `Sentry.captureException(this.currentTest.err)`.
